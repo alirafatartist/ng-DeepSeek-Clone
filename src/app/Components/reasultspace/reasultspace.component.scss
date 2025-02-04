@@ -1,0 +1,125 @@
+.resultspace {
+  position: fixed;
+  left: 70px;
+  background: var(--bg-workspace);
+  height: 100vh;
+  width: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  .temp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    .top {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      gap: 20px;
+      a {
+        color: var(--main-color);
+        text-decoration: none;
+      }
+      h5 {
+        margin: 0;
+      }
+      .logo {
+        width: 50px;
+      }
+    }
+  }
+}
+.messages {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 200px;
+  width: min(90%, 800px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  overflow-y: auto;
+  margin-left: 35px;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .user-message {
+    background: var(--bg-user-message);
+    color: var(--text);
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+  .bot-message {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+    max-width: 80%;
+    .logo-wrapper {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--text);
+      border-radius: 50%;
+      background: var(--icons-color);
+    }
+    p {
+      color: var(--text);
+      margin: 0;
+      word-wrap: break-word;
+    }
+  }
+}
+
+// media query
+@media (max-width: 600px) {
+  .resultspace {
+    .temp {
+      .top {
+        gap: 10px;
+        font-size: 10px !important;
+        h5 {
+          font-size: 14px !important;
+        }
+        .logo {
+          width: 40px;
+        }
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+  }
+  .messages {
+    width: min(95%, 600px);
+    padding: 10px;
+    bottom: 200px;
+    margin-left: 35px;
+    .bot-message {
+      max-width: 90%;
+      .logo-wrapper {
+        width: 20px;
+        height: 20px;
+        .logo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
