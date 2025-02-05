@@ -70,6 +70,7 @@
     margin-left: 20px;
     max-width: 80%;
     color: var(--text) !important;
+    padding-right: 1rem;
     .logo-wrapper {
       flex-shrink: 0;
       width: 28px;
@@ -82,8 +83,11 @@
       color: var(--text);
       margin: 0;
       word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     .bot-content {
+      width: 100%;
+      padding-right: 1rem;
       pre {
         background: #1e1e1e;
         border-radius: 8px;
@@ -91,11 +95,17 @@
         margin: 1rem 0;
         overflow-x: auto;
         position: relative;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
 
         code {
           font-family: "Consolas", "Monaco", "Courier New", monospace;
           font-size: 14px;
           line-height: 1.5;
+          width: 100%;
+          display: block;
 
           // Override highlight.js theme colors if needed
           .hljs {
@@ -127,6 +137,17 @@
             color: #569cd6;
           }
         }
+      }
+      p,
+      ul,
+      ol {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        padding-right: 0.5rem;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
       }
     }
   }
@@ -167,6 +188,29 @@
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+      }
+    }
+  }
+}
+
+// Media query for mobile devices
+@media screen and (max-width: 768px) {
+  .resultspace {
+    .messages {
+      padding: 0.5rem;
+
+      .bot-message {
+        padding-right: 0.75rem;
+
+        .bot-content {
+          padding-right: 0.75rem;
+
+          pre {
+            margin: 0.5rem -0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+          }
         }
       }
     }
