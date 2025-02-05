@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../Services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { marked } from 'marked';
+import { KeyboardDirective } from '../../Directives/keyboard.directive';
 
 @Component({
   selector: 'app-askbox',
   standalone: true,
-  imports: [FormsModule, CommonModule,HttpClientModule],
+  imports: [FormsModule, CommonModule,HttpClientModule,KeyboardDirective],
   templateUrl: './askbox.component.html',
   styleUrl: './askbox.component.scss',
   providers:[ApiService]
@@ -33,6 +34,7 @@ export class AskboxComponent {
       // Send the response to the child component
       this.SharedService.sendInputData(this.userMessage,marked.parse(aiMessage));
       console.log(this.userMessage,aiMessage);
+      this.userMessage = '';
     });
   }
 

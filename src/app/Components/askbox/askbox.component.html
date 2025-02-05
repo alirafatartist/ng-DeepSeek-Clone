@@ -1,6 +1,6 @@
 <div class="askbox">
   <input type="text" placeholder="Message DeepSeek" [(ngModel)]="userMessage"/>
-  <button [disabled]="!userMessage" [ngClass]="{'disabled': !userMessage}" (click)="sendData()">
+  <button [disabled]="!userMessage" [ngClass]="{'disabled': !userMessage}" appKeyboard (click)="sendData()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
