@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../Services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-askbox',
@@ -30,7 +31,7 @@ export class AskboxComponent {
       this.chatHistory.push({ role: 'model', parts: [{ text: aiMessage }] });
 
       // Send the response to the child component
-      this.SharedService.sendInputData(this.userMessage,aiMessage);
+      this.SharedService.sendInputData(this.userMessage,marked.parse(aiMessage));
       console.log(this.userMessage,aiMessage);
     });
   }
