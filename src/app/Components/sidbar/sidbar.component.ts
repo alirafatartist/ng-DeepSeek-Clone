@@ -1,3 +1,4 @@
+import { SharedService } from './../../Services/shared.service';
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -14,7 +15,10 @@ export class SidbarComponent implements AfterViewInit {
   lightMode_icon: any;
   darkMode_icon: any;
   isLightmode: boolean = false;
-  constructor(private sanitizer: DomSanitizer) {} // Inject DomSanitizer
+  constructor(
+    private sanitizer: DomSanitizer,
+    private SharedService: SharedService
+  ) {} // Inject DomSanitizer
 
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
@@ -29,6 +33,7 @@ export class SidbarComponent implements AfterViewInit {
   }
 
   changeTheme() {
-   this.isLightmode=!this.isLightmode
+    this.isLightmode = !this.isLightmode;
+    this.SharedService.sendTheme(this.isLightmode)
   }
 }

@@ -10,3 +10,12 @@
   --text: #fff;
   --text-light: #000;
 }
+[data-theme="light"] {
+  --main-color: #4d6bfe;
+  --bg-sidebar: #fff;
+  --bg-workspace: #f5f5f5;
+  --bg-user-message: #e3e3e6;
+  --bg-askbox: #fff;
+  --icons-color: #abb2bd;
+  --text: #000;
+}
