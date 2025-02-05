@@ -50,11 +50,17 @@
       <div *ngIf="message.type === 'user'">
         <p>{{ message.content }}</p>
       </div>
-      <div
-        *ngIf="message.type === 'bot'"
-        class="bot-content"
-        [innerHTML]="message.htmlContent"
-      ></div>
+      <div *ngIf="message.type === 'bot'" class="bot-content">
+        <div *ngIf="message.isLoading">{{ message.displayContent }}</div>
+        <div
+          *ngIf="!message.isLoading && message.isTyping"
+          [innerHTML]="message.displayContent"
+        ></div>
+        <div
+          *ngIf="!message.isLoading && !message.isTyping"
+          [innerHTML]="message.htmlContent"
+        ></div>
+      </div>
     </div>
   </div>
 </div>
