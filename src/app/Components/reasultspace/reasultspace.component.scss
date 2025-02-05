@@ -88,6 +88,8 @@
 // media query
 @media (max-width: 600px) {
   .resultspace {
+    left: 50px;
+  width: calc(100% - 50px);
     .temp {
       .top {
         gap: 10px;

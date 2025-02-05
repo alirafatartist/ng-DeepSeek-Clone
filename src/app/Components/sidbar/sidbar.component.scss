@@ -65,10 +65,10 @@ p {
       border-radius: 10px;
       padding: 10px;
       transition: 0.3s;
-      p{
+      p {
         color: #fff;
       }
-      svg{
+      svg {
         color: #fff;
       }
       &:hover {
@@ -108,13 +108,19 @@ p {
         }
       }
     }
-    .wrapper{
+    .wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .toggle-theme-icon{
+      .toggle-theme-icon {
         cursor: pointer;
       }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 50px;
   }
 }
