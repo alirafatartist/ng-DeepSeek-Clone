@@ -24,6 +24,7 @@ export class AskboxComponent {
     // console.log(this.userMessage);
     // this.SharedService.sendInputData(this.userMessage);
     this.chatHistory.push({ role: 'user', parts: [{ text: this.userMessage }] });
+    this.SharedService.sendInputData(this.userMessage);
 
     this.apiService.fetchData(this.chatHistory).subscribe(response => {
       const aiMessage = response.candidates[0].content.parts[0].text;
@@ -32,7 +33,7 @@ export class AskboxComponent {
       this.chatHistory.push({ role: 'model', parts: [{ text: aiMessage }] });
 
       // Send the response to the child component
-      this.SharedService.sendInputData(this.userMessage,marked.parse(aiMessage));
+      this.SharedService.sendBotData(marked.parse(aiMessage));
       console.log(this.userMessage,aiMessage);
       this.userMessage = '';
     });

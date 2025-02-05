@@ -19,9 +19,12 @@ export class SharedService {
   botData$ = this.botData.asObservable();
   theme$ = this.themelight.asObservable();
 
-  sendInputData(data: string, botdata: any) {
+  sendInputData(data: string) {
     this.inputData.next(data);
+  }
+  sendBotData(botdata:any){
     this.botData.next(botdata);
+
   }
   sendTheme(data: boolean) {
     this.themelight.next(data);
