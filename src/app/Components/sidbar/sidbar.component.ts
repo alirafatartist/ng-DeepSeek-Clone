@@ -36,4 +36,8 @@ export class SidbarComponent implements AfterViewInit {
     this.isLightmode = !this.isLightmode;
     this.SharedService.sendTheme(this.isLightmode)
   }
+
+  reloadPage() {
+    window.location.reload();
+  }
 }
